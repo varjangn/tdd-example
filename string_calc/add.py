@@ -30,10 +30,15 @@ def add(numbers: str) -> int:
         return result
 
     nums = extract_numbers(numbers)
+    neg_nums = []
 
     for n in nums:
-        result += n
+        if n < 0:
+            neg_nums.append(str(n))
+        else:
+            result += n
+
+    if len(neg_nums):
+        raise ValueError(f"negative numbers not allowed <{','.join(neg_nums)}>")
 
     return result
-
-add("1\n2,3")

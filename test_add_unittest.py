@@ -22,6 +22,9 @@ class TestAdd(unittest.TestCase):
         self.assertEqual(add_mod.extract_delimeter("//|\n1|2"), '|')
         self.assertEqual(add_mod.add("//;\n1;2"), 3)
 
+    def test_add_str_negative_nums(self):
+        self.assertRaises(ValueError, add_mod.add, "1,-4,5,-6")
+
 
 if __name__ == "__main__":
     unittest.main()
