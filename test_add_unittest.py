@@ -17,6 +17,11 @@ class TestAdd(unittest.TestCase):
         self.assertEqual(add_mod.extract_numbers("1\n2,3"), [1,2,3])
         self.assertEqual(add_mod.add("1\n2,3"), 6)
 
+    def test_add_str_with_delimeter(self):
+        self.assertEqual(add_mod.extract_delimeter("//;\n1;2"), ';')
+        self.assertEqual(add_mod.extract_delimeter("//|\n1|2"), '|')
+        self.assertEqual(add_mod.add("//;\n1;2"), 3)
+
 
 if __name__ == "__main__":
     unittest.main()
